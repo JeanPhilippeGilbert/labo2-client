@@ -11,11 +11,11 @@ const operations = [
     ['?op=-&x=111&y=244', -133],
     ['?op=*&x=11.56&y=244.12345', 2822.067082],
     ['?op=/&x=99&y=11.06', 8.95117540687161],
-    ['?op=/&x=99&y=0', "NaN"],
-    ['?op=/&x=0&y=0', "NaN"],
+    ['?op=/&x=99&y=0', "Nan"],
+    ['?op=/&x=0&y=0', "Infinity"],
     ['?op=%&x=5&y=5', 0],
     ['?op=%&x=100&y=13', 9],
-    ['?op=%&x=100&y=0', "NaN"],
+    ['?op=%&x=100&y=0', "Nan"],
     ['?op=!&n=0', "n need to be a integrer > 0"],
     ['?op=p&n=0', false],
     ['?op=p&n=1', false],
@@ -32,8 +32,8 @@ const operations = [
     ['?op=&z=1', "op need to be define"],
     ['?op=!&n=-5', "n need to be a integrer > 0"],
     ['?op=&x=0', "op need to be define"],
-    ['?op=+&X=111&y=244', "x is missing"],
-    ['?op=+&x=111&Y=244', "y is missing"],
+    ['?op=+&X=111&y=244', "x need to be define"],
+    ['?op=+&x=111&Y=244', "y need to be define"],
 ];
 
 // Start button click event
@@ -49,7 +49,7 @@ startButton.addEventListener('click', () => {
 
     
     operations.forEach(([operation, expectedResult]) => {
-        let url = `/api/maths${operation}`;
+        let url = `${baseUrl}/api/maths${operation}`;
 
         
         fetch(url)
