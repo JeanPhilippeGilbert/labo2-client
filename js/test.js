@@ -77,6 +77,8 @@ startButton.addEventListener('click', () => {
                 if (successfulRequests === totalRequests) {
                     verdictMessage.textContent = 'All tests passed successfully!';
                 }
+                else
+                    verdictMessage.textContent = 'Test failed!';
             })
             .catch((error) => {
                 
